@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md\")",
+      "WebFetch(domain:github.com)",
+      "Bash(npm install *)",
+      "PowerShell(npm install -g uipro-cli 2>&1)"
+    ]
+  }
+}
