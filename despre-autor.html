@@ -166,10 +166,11 @@
     /* Author photo — full, uncropped */
     .hero-autor-visual { position:relative; z-index:2; }
     .autor-photo-hero {
-      position:relative; border-radius:24px; overflow:hidden;
+      position:relative; border-radius:24px; overflow:visible;
+      padding-bottom:50px;
     }
-    .autor-photo-hero img {
-      width:100%; height:auto; max-width:100%;
+    .autor-photo-hero img:first-child {
+      width:calc(100% + 25px); height:auto; max-width:none;
       display:block;
       border-radius:24px;
       object-fit:contain;
@@ -724,10 +725,13 @@
       <h1 class="hero-autor-name animated-grad-text" id="autor-name">Marius Bogdan<br>Pîslariu</h1>
       <p class="hero-autor-title">Autorul cărții SELLDUCTION</p>
       <p class="hero-autor-bio">
-        Marius Bogdan Pîslariu este autorul cărții SELLDUCTION. Tot ceea ce împărtășește în paginile acestei lucrări provine dintr-o experiență de peste 20 de ani, timp în care a construit, a eșuat, a reinventat și a învățat să se depășească pe sine.
+        Marius este unul dintre puținii profesioniști din lume care au făcut drumul de la inventator premiat internațional la consultant al elitei globale de afaceri. Peste 200 de tranzacții imobiliare în Dubai, dintre care 90% peste un milion de dolari. Co-autor cu Brian Tracy la „The Selected One" — #1 Amazon Bestseller în patru categorii. Peste 500 de patente de inovație premiate la Gaudeamus încă din anul 2000.
       </p>
       <p class="hero-autor-bio" style="margin-top:-16px;">
-        Este pasionat de dezvoltarea personală și profesională, iar din dorința de a oferi mai departe lecțiile învățate, a construit și a investit constant în proiecte care îl reprezintă.
+        A construit Innovators' University, Couture Private, EdgeEra și Property Digest. A fost prezentat în Bloomberg, Forbes, NBC, Fox News și peste 100 de alte publicații.
+      </p>
+      <p class="hero-autor-bio" style="margin-top:-16px;">
+        Prin SELLDUCTION, aduce într-un singur loc tot ce a învățat: vânzarea premium nu este despre tehnică. Este despre cine ești tu în fața clientului.
       </p>
       <div class="hero-autor-stat">
         <span class="stat-num">20+ ani</span>
@@ -752,14 +756,15 @@
         </a>
       </div>
       <div class="hero-autor-quote" style="margin-top:36px;">
-        <p>„Adevărata vânzare nu este o acțiune, ci o devenire. Cartea SELLDUCTION este moștenirea mea pentru toți cei care cred că succesul în vânzări începe în oglindă."</p>
+        <p>„Adevărata vânzare nu este o acțiune. Este o devenire. SELLDUCTION este ce vreau să predau celor care înțeleg că succesul în vânzări începe în oglindă."</p>
         <cite>— Marius Bogdan Pîslariu</cite>
       </div>
     </div>
 
     <div class="hero-autor-visual reveal reveal-delay-2">
-      <div class="autor-photo-hero">
+      <div class="autor-photo-hero" style="position:relative;">
         <img src="picture%20Marius%204.png" alt="Marius Bogdan Pîslariu — autorul SELLDUCTION" loading="eager" />
+        <img src="badge%20marius.png" alt="Amazon #1 Best Seller — The Selected One" loading="lazy" style="position:absolute; bottom:-20px; right:-20px; width:130px; height:auto; z-index:2;" />
       </div>
       <div class="autor-signature-hero">
         <img src="signature%20Marius%20White.png" alt="Semnătura Marius Bogdan Pîslariu" loading="lazy" />
@@ -794,6 +799,18 @@
         <div class="c-num"><span class="c-val">0</span>+ ani</div>
         <div class="c-lbl">vânzări &amp; real estate</div>
       </div>
+      <div class="expertiza-counter reveal reveal-delay-1" data-target="200" data-suffix="+">
+        <div class="c-num"><span class="c-val">0</span>+</div>
+        <div class="c-lbl">tranzacții imobiliare finalizate</div>
+      </div>
+      <div class="expertiza-counter reveal reveal-delay-2">
+        <div class="c-num">90%</div>
+        <div class="c-lbl">peste 1 milion de dolari valoare per tranzacție</div>
+      </div>
+      <div class="expertiza-counter reveal reveal-delay-3" data-target="500" data-suffix="+">
+        <div class="c-num"><span class="c-val">0</span>+</div>
+        <div class="c-lbl">patente Gaudeamus 2000</div>
+      </div>
     </div>
 
     <!-- Achievements -->
@@ -811,7 +828,7 @@
       <!-- AUTOR — book icon -->
       <div class="achievement-item reveal reveal-delay-3">
         <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
-        <div class="achievement-text"><strong>AUTOR</strong><span>E-books „The Confessions of an Honest Realtor"</span></div>
+        <div class="achievement-text"><strong>AUTOR</strong><span>„The Confessions of an Honest Realtor"</span></div>
       </div>
       <!-- CO-AUTOR — book icon -->
       <div class="achievement-item reveal reveal-delay-1">
@@ -821,12 +838,12 @@
       <!-- CO-AUTOR — book icon -->
       <div class="achievement-item reveal reveal-delay-2">
         <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
-        <div class="achievement-text"><strong>CO-AUTOR</strong><span>„The Generative AI Revolution" alături de lideri de top din industria AI din UAE</span></div>
+        <div class="achievement-text"><strong>CO-AUTOR</strong><span>„The Generative AI Renaissance" alături de lideri de top din industria AI din UAE</span></div>
       </div>
       <!-- AUTOR — book icon -->
       <div class="achievement-item reveal reveal-delay-3">
         <div class="achievement-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
-        <div class="achievement-text"><strong>AUTOR</strong><span>„KILL the Deal" — peste 500 de abilități pentru un upgrade profesional</span></div>
+        <div class="achievement-text"><strong>AUTOR</strong><span>„K!LL THE DEAL" - cartea-oglindă a vânzătorului modern</span></div>
       </div>
       <!-- FONDATOR — checkmark icon -->
       <div class="achievement-item reveal reveal-delay-1">
@@ -852,12 +869,12 @@
   <div class="povestea-inner container">
     <div class="povestea-content reveal">
       <span class="section-label">Un parcurs scris în rezultate</span>
-      <h2 id="povestea-title"><span class="highlight">„Brokerul Miliardarilor"</span><br>sau „The Innovator"</h2>
-      <p>Marius Bogdan Pîslariu este cunoscut drept „Brokerul Miliardarilor". În Dubai, conduce cu succes business-uri imobiliare dedicate investitorilor internaționali, High Net Worth și Ultra High Net Worth Individuals, oferind o abordare de private advisory, nu de simplă intermediere.</p>
-      <p>Cu peste 8 ani de experiență în vânzări în Dubai, este recunoscut ca unul dintre consultanții de încredere ai elitei globale, fondator al Property Digest și Couture Private Estates.</p>
-      <p>Spiritul de Innovator l-a definit încă din copilărie. Curiozitatea l-a împins să înțeleagă și să reconstruiască sisteme, iar această mentalitate i-a modelat întregul parcurs. A obținut numeroase premii internaționale pentru invențiile sale, deține multiple brevete, iar gândirea orientată spre soluții s-a transferat natural în business.</p>
-      <p>Această identitate a fost consolidată ulterior prin proiecte strategice, precum fondarea Innovators' University, un ecosistem educațional dedicat liderilor și vizionarilor care își doresc să își construiască viața și business-ul prin framework-uri inovative și gândire strategică.</p>
-      <p>Parcursul său, de la medalii internaționale în inventică la tranzacții de milioane în Dubai, reflectă o filozofie clară:</p>
+      <h2 id="povestea-title"><span class="highlight">„Brokerul Miliardarilor"</span> și „The Innovator". Aceeași persoană.</h2>
+      <p>În Dubai, este cunoscut drept „Brokerul Miliardarilor". Pentru investitorii internaționali HNWI și UHNWI, oferă consultanță privată — nu intermediere. Peste 200 de tranzacții, dintre care 90% peste un milion de dolari. Fondator Couture Private și Property Digest. Top 20 Dubai Business Leaders.</p>
+      <p>Dar drumul lui nu a început în imobiliare. A început în inventică.</p>
+      <p>La 18 ani, expunea pentru prima dată invenții la Salonul Internațional Gaudeamus. Până astăzi, are peste 500 de patente premiate internațional. Curiozitatea de a înțelege și de a reconstrui sisteme — acea predispoziție tehnică de inventator — este ceea ce explică, de fapt, performanța lui ulterioară în vânzări premium: același mod de a privi un sistem și de a-i identifica pârghiile care contează cu adevărat.</p>
+      <p>Această dublă identitate — inventator și negociator — se traduce în proiectele pe care le-a construit ulterior: Innovators' University, ca platformă de transmitere a metodologiilor proprii; EdgeEra, ca sistem tactic; SELLDUCTION, ca filosofie de identitate.</p>
+      <p>Parcursul de la medalii internaționale în inventică la tranzacții de milioane în Dubai reflectă o singură convingere:</p>
       <div class="povestea-pullquote">
         <p>„Nu este vorba despre ce vinzi.<br>Este vorba despre cine devii."</p>
       </div>
@@ -890,7 +907,7 @@
 
 <!-- ═══ FEATURED IN ═══ -->
 <section id="featured-in" aria-label="Apariții media">
-  <h2 class="featured-heading">Featured In</h2>
+  <h2 class="featured-heading">Presa Internațională</h2>
   <div style="overflow:hidden;">
     <div class="marquee-track">
       <div class="marquee-item"><img src="featured%20in/Untitled%20design%20(32).png" alt="" loading="lazy" /></div>
