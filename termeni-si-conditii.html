@@ -390,6 +390,7 @@
     }
 
     .footer-nav a:hover { color: var(--grad-start); }
+    .footer-nav a.active, .footer-bottom-links a.active { color: var(--grad-start) !important; font-weight: 600; }
 
     .footer-socials {
       display: flex;
@@ -631,6 +632,17 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    /* ── Active footer link ── */
+    (function(){
+      var path = window.location.pathname.replace(/\/+$/, '');
+      document.querySelectorAll('.footer-nav a, .footer-bottom-links a').forEach(function(a){
+        var href = a.getAttribute('href').replace(/\/+$/, '');
+        if(path === href || path === href.replace('.html','')) a.classList.add('active');
+      });
+    })();
+  </script>
 
   <script>
     // Header scroll effect
