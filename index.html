@@ -209,8 +209,10 @@
       white-space: nowrap;
     }
     .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.1); }
+    .nav-links a.active { color: var(--grad-start) !important; }
     #header.scrolled .nav-links a { color: var(--text); }
     #header.scrolled .nav-links a:hover { color: var(--grad-start); background: rgba(253,85,100,0.05); }
+    #header.scrolled .nav-links a.active { color: var(--grad-start) !important; background: rgba(253,85,100,0.07); }
     .nav-cta { display: none; }
     .hamburger {
       display: none; flex-direction: column; gap: 5px;
@@ -1100,7 +1102,7 @@
       <p class="hero-author">Marius Bogdan Pîslariu</p>
       <div class="hero-ctas">
         <a href="/cartea-sellduction.html" class="btn btn-outline-white" aria-label="Citește mai mult despre cartea SELLDUCTION">Citește mai mult</a>
-        <a href="#" class="btn btn-primary" aria-label="Cumpără acum cartea SELLDUCTION">Cumpără acum →</a>
+        <a href="https://www.artbutic.ro/cumpara/sellduction-marius-bogdan-pislariu-425" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Cumpără acum cartea SELLDUCTION">Cumpără acum →</a>
       </div>
       <div class="hero-quote" role="complementary" aria-label="Prefață de Rafael Badziag">
         <p class="hero-quote-label">Prefață de Rafael Badziag</p>
@@ -1153,7 +1155,7 @@
         Vei învăța cum să construiești un brand personal memorabil. Cum să închei o vânzare fără să mai vinzi nimic. Este o carte despre cum să deschizi o minte și să închizi un deal. A clientului. Și a ta.
       </p>
       <div class="overview-ctas reveal reveal-delay-1">
-        <a href="#" class="btn btn-primary" aria-label="Cumpără cartea SELLDUCTION">Cumpără cartea →</a>
+        <a href="https://www.artbutic.ro/cumpara/sellduction-marius-bogdan-pislariu-425" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Cumpără cartea SELLDUCTION">Cumpără cartea →</a>
         <a href="/cartea-sellduction.html" class="btn btn-outline" aria-label="Detalii despre cartea SELLDUCTION">Detalii despre carte</a>
       </div>
       <div class="overview-socials reveal reveal-delay-2">
@@ -1558,6 +1560,15 @@
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
+
+  /* ── Active nav link ── */
+  (function(){
+    var path = window.location.pathname.replace(/\/+$/, '') || '/index.html';
+    document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(function(a){
+      var href = a.getAttribute('href').replace(/\/+$/, '') || '/index.html';
+      if(path === href || path.endsWith(href)) a.classList.add('active');
+    });
+  })();
 
   /* ── Mobile menu ── */
   const btn = document.getElementById('hamburgerBtn');

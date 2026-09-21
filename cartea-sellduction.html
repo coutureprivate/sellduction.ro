@@ -206,6 +206,8 @@
       white-space: nowrap;
     }
     .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.1); }
+    .nav-links a.active { color: var(--grad-start) !important; }
+    #header.scrolled .nav-links a.active { color: var(--grad-start) !important; background: rgba(253,85,100,0.07); }
     .nav-links a.active { color: #fff; }
     #header.scrolled .nav-links a { color: var(--text); }
     #header.scrolled .nav-links a:hover { color: var(--grad-start); background: rgba(253,85,100,0.05); }
@@ -1665,6 +1667,15 @@
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
+
+  /* ── Active nav link ── */
+  (function(){
+    var path = window.location.pathname.replace(/\/+$/, '') || '/index.html';
+    document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(function(a){
+      var href = a.getAttribute('href').replace(/\/+$/, '') || '/index.html';
+      if(path === href || path.endsWith(href)) a.classList.add('active');
+    });
+  })();
 
   /* ── Mobile menu ── */
   const btn = document.getElementById('hamburgerBtn');
