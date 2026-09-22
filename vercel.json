@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/img", "destination": "/img.png" }
+    { "source": "/img", "destination": "/img.png" },
+    { "source": "/img/", "destination": "/img.png" }
   ]
 }
