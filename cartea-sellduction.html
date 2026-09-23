@@ -1616,105 +1616,136 @@
      SECTION 9 , ENCYCLOPEDIA DOWNLOAD
 ═══════════════════════════════════════════ -->
 <style>
-  #encyclopedia { padding:110px 24px; background:var(--dark); position:relative; overflow:hidden; }
+  #encyclopedia {
+    padding: 110px 24px 0;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
   #encyclopedia .enc-glow {
-    pointer-events:none; position:absolute; inset:0;
+    pointer-events: none; position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 60% 70% at 0% 50%, rgba(253,85,100,0.14) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 100% 20%, rgba(254,60,114,0.10) 0%, transparent 55%),
-      radial-gradient(ellipse 35% 40% at 100% 90%, rgba(253,85,100,0.08) 0%, transparent 50%);
+      radial-gradient(ellipse 55% 65% at 0% 40%, rgba(253,85,100,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 100% 15%, rgba(254,60,114,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 50% 100%, rgba(253,85,100,0.12) 0%, transparent 55%);
   }
-  #encyclopedia .enc-inner { max-width:1160px; margin:0 auto; position:relative; z-index:1; }
-  #encyclopedia .enc-grid {
-    display:grid;
-    grid-template-columns: 1fr 480px;
-    gap:80px;
-    align-items:center;
+  #encyclopedia .enc-inner {
+    max-width: 1160px; margin: 0 auto; position: relative; z-index: 1;
   }
-  /* LEFT col */
+
+  /* TOP ROW: 2 columns */
+  #encyclopedia .enc-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: start;
+    margin-bottom: 0;
+  }
+
+  /* LEFT */
   #encyclopedia .enc-title {
-    font-family:var(--font-head);
-    font-size:clamp(2rem,4vw,3.2rem);
-    font-weight:900; line-height:1.1; color:#fff;
-    margin-bottom:20px;
+    font-family: var(--font-head);
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    font-weight: 900; line-height: 1.1; color: #fff;
+    margin-bottom: 20px;
   }
   #encyclopedia .enc-title .pink {
-    background:var(--gradient);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    background: var(--gradient);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   #encyclopedia .enc-badges {
-    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px;
   }
   #encyclopedia .enc-badge {
-    font-family:var(--font-head); font-size:.7rem; font-weight:700;
-    letter-spacing:.09em; text-transform:uppercase;
-    background:rgba(253,85,100,0.10); color:var(--grad-start);
-    border:1px solid rgba(253,85,100,0.28);
-    padding:6px 16px; border-radius:50px;
+    font-family: var(--font-head); font-size: .7rem; font-weight: 700;
+    letter-spacing: .09em; text-transform: uppercase;
+    background: rgba(253,85,100,0.10); color: var(--grad-start);
+    border: 1px solid rgba(253,85,100,0.28);
+    padding: 6px 16px; border-radius: 50px;
   }
   #encyclopedia .enc-body {
-    font-size:.94rem; color:rgba(255,255,255,.68);
-    line-height:1.78; margin-bottom:16px;
+    font-size: .94rem; color: rgba(255,255,255,.68);
+    line-height: 1.78; margin-bottom: 16px;
   }
   #encyclopedia .enc-quote {
-    border-left:3px solid var(--grad-start);
-    padding:16px 22px;
-    background:rgba(253,85,100,0.07);
-    border-radius:0 12px 12px 0;
-    margin:28px 0 32px;
+    border-left: 3px solid var(--grad-start);
+    padding: 16px 22px;
+    background: rgba(253,85,100,0.07);
+    border-radius: 0 12px 12px 0;
+    margin: 24px 0 0;
   }
   #encyclopedia .enc-quote p {
-    font-family:var(--font-head); font-size:.97rem; font-weight:700;
-    color:#fff; line-height:1.6; margin:0;
+    font-family: var(--font-head); font-size: .97rem; font-weight: 700;
+    color: #fff; line-height: 1.6; margin: 0;
   }
-  #encyclopedia .enc-quote span { color:var(--grad-start); }
-  /* form wrapper */
+  #encyclopedia .enc-quote span { color: var(--grad-start); }
+
+  /* RIGHT: form */
+  #encyclopedia .enc-right {
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  #encyclopedia .enc-cta-heading {
+    font-family: var(--font-head); font-size: 1.25rem; font-weight: 800;
+    color: #fff; line-height: 1.4; margin-bottom: 8px;
+  }
+  #encyclopedia .enc-cta-sub {
+    font-size: .88rem; color: rgba(255,255,255,.52);
+    line-height: 1.6; margin-bottom: 24px;
+  }
   #encyclopedia .enc-form-box {
-    width:100%;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(253,85,100,0.22);
-    border-radius:16px; padding:28px 28px 22px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(253,85,100,0.22);
+    border-radius: 16px; padding: 28px 28px 22px;
   }
   #encyclopedia .enc-gdpr {
-    display:flex; align-items:flex-start; gap:12px;
-    margin-top:18px; cursor:pointer;
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-top: 18px; cursor: pointer;
   }
   #encyclopedia .enc-gdpr input {
-    margin-top:3px; flex-shrink:0;
-    width:15px; height:15px;
-    accent-color:var(--grad-start); cursor:pointer;
+    margin-top: 3px; flex-shrink: 0;
+    width: 15px; height: 15px;
+    accent-color: var(--grad-start); cursor: pointer;
   }
   #encyclopedia .enc-gdpr span {
-    font-size:.76rem; color:rgba(255,255,255,.45); line-height:1.6;
+    font-size: .76rem; color: rgba(255,255,255,.45); line-height: 1.6;
   }
-  #encyclopedia .enc-gdpr a { color:var(--grad-start); text-decoration:underline; }
-  /* RIGHT col — image */
-  #encyclopedia .enc-img-col {
-    display:flex; flex-direction:column; align-items:center; gap:32px;
+  #encyclopedia .enc-gdpr a { color: var(--grad-start); text-decoration: underline; }
+
+  /* BOTTOM: image centered, bleeds into section padding */
+  #encyclopedia .enc-bottom {
+    display: flex; justify-content: center; align-items: flex-end;
+    margin-top: 56px;
+    /* negative bottom so the book visually "sits" on the footer edge */
   }
-  #encyclopedia .enc-img-col img {
-    width:100%; max-width:460px; height:auto;
-    filter:drop-shadow(0 32px 80px rgba(253,85,100,0.30))
-           drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+  #encyclopedia .enc-bottom img {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    display: block;
+    filter:
+      drop-shadow(0 -16px 60px rgba(253,85,100,0.22))
+      drop-shadow(0 8px 40px rgba(0,0,0,0.7));
   }
+
   /* mobile */
-  @media(max-width:900px){
-    #encyclopedia .enc-grid {
-      grid-template-columns:1fr;
-      gap:48px;
+  @media(max-width: 900px) {
+    #encyclopedia .enc-top {
+      grid-template-columns: 1fr;
+      gap: 48px;
     }
-    #encyclopedia .enc-img-col { order:-1; }
-    #encyclopedia .enc-img-col img { max-width:360px; }
+    #encyclopedia .enc-bottom img { max-width: 480px; }
   }
-  @media(max-width:480px){
-    #encyclopedia .enc-img-col img { max-width:280px; }
+  @media(max-width: 480px) {
+    #encyclopedia .enc-bottom img { max-width: 300px; }
   }
 </style>
 
 <section id="encyclopedia" aria-labelledby="enc-title">
   <div class="enc-glow" aria-hidden="true"></div>
   <div class="enc-inner">
-    <div class="enc-grid">
+
+    <!-- TOP: text left / form right -->
+    <div class="enc-top">
 
       <!-- LEFT: content -->
       <div>
@@ -1746,13 +1777,10 @@
         </div>
       </div>
 
-      <!-- RIGHT: image + form -->
-      <div class="enc-img-col">
-        <img
-          src="encyclopedia%20transparent.png"
-          alt="The Relationship VS Relationshit Encyclopedia – coperta"
-          loading="lazy"
-        />
+      <!-- RIGHT: form -->
+      <div class="enc-right">
+        <p class="enc-cta-heading">Lasă-ne adresa ta de email și primești instant enciclopedia pe email.</p>
+        <p class="enc-cta-sub">Gratuit. Fără card. Direct în inbox.</p>
         <div class="enc-form-box">
           <script src="https://www.innovators-university.com/forms/2149730941/embed.js"></script>
           <label class="enc-gdpr">
@@ -1766,7 +1794,17 @@
         </div>
       </div>
 
-    </div><!-- /enc-grid -->
+    </div><!-- /enc-top -->
+
+    <!-- BOTTOM: encyclopedia image centered -->
+    <div class="enc-bottom">
+      <img
+        src="encyclopedia%20transparent.png"
+        alt="The Relationship VS Relationshit Encyclopedia – coperta"
+        loading="lazy"
+      />
+    </div>
+
   </div><!-- /enc-inner -->
 </section>
 
