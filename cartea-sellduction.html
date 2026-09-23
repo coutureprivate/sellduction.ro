@@ -1632,16 +1632,6 @@
     align-items:center;
   }
   /* LEFT col */
-  #encyclopedia .enc-label {
-    font-family:var(--font-head); font-size:.72rem; font-weight:700;
-    letter-spacing:.16em; text-transform:uppercase;
-    color:var(--grad-start); margin-bottom:20px;
-    display:flex; align-items:center; gap:10px;
-  }
-  #encyclopedia .enc-label::before {
-    content:''; display:inline-block; width:28px; height:2px;
-    background:var(--gradient); border-radius:2px;
-  }
   #encyclopedia .enc-title {
     font-family:var(--font-head);
     font-size:clamp(2rem,4vw,3.2rem);
@@ -1680,6 +1670,7 @@
   #encyclopedia .enc-quote span { color:var(--grad-start); }
   /* form wrapper */
   #encyclopedia .enc-form-box {
+    width:100%;
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(253,85,100,0.22);
     border-radius:16px; padding:28px 28px 22px;
@@ -1699,10 +1690,10 @@
   #encyclopedia .enc-gdpr a { color:var(--grad-start); text-decoration:underline; }
   /* RIGHT col — image */
   #encyclopedia .enc-img-col {
-    display:flex; align-items:center; justify-content:center;
+    display:flex; flex-direction:column; align-items:center; gap:32px;
   }
   #encyclopedia .enc-img-col img {
-    width:100%; max-width:500px; height:auto;
+    width:100%; max-width:460px; height:auto;
     filter:drop-shadow(0 32px 80px rgba(253,85,100,0.30))
            drop-shadow(0 8px 24px rgba(0,0,0,0.6));
   }
@@ -1725,10 +1716,8 @@
   <div class="enc-inner">
     <div class="enc-grid">
 
-      <!-- LEFT: content + form -->
+      <!-- LEFT: content -->
       <div>
-        <p class="enc-label">Bonus Gratuit</p>
-
         <h2 id="enc-title" class="enc-title">
           RELATIONSHIP VS<br>
           <span class="pink">RELATIONSH!T.</span><br>
@@ -1755,7 +1744,15 @@
             <span>ENCICLOPEDIA te ajută să recunoști cui merită să-i deschizi ușa.</span>
           </p>
         </div>
+      </div>
 
+      <!-- RIGHT: image + form -->
+      <div class="enc-img-col">
+        <img
+          src="encyclopedia%20transparent.png"
+          alt="The Relationship VS Relationshit Encyclopedia – coperta"
+          loading="lazy"
+        />
         <div class="enc-form-box">
           <script src="https://www.innovators-university.com/forms/2149730941/embed.js"></script>
           <label class="enc-gdpr">
@@ -1767,15 +1764,6 @@
             </span>
           </label>
         </div>
-      </div>
-
-      <!-- RIGHT: image -->
-      <div class="enc-img-col">
-        <img
-          src="encyclopedia%20transparent.png"
-          alt="The Relationship VS Relationshit Encyclopedia – coperta"
-          loading="lazy"
-        />
       </div>
 
     </div><!-- /enc-grid -->
