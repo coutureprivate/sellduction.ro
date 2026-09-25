@@ -1249,16 +1249,12 @@
 <style>
   #encyclopedia {
     padding: 110px 24px 0;
-    background: var(--dark);
+    background: #fff;
     position: relative;
     overflow: hidden;
   }
   #encyclopedia .enc-glow {
-    pointer-events: none; position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 55% 65% at 0% 40%, rgba(253,85,100,0.14) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 100% 15%, rgba(254,60,114,0.10) 0%, transparent 55%),
-      radial-gradient(ellipse 50% 40% at 50% 100%, rgba(253,85,100,0.12) 0%, transparent 55%);
+    display: none;
   }
   #encyclopedia .enc-inner {
     max-width: 1160px; margin: 0 auto; position: relative; z-index: 1;
@@ -1273,7 +1269,7 @@
   #encyclopedia .enc-title {
     font-family: var(--font-head);
     font-size: clamp(1.9rem, 3.5vw, 3rem);
-    font-weight: 900; line-height: 1.1; color: #fff;
+    font-weight: 900; line-height: 1.1; color: #424242;
     margin-bottom: 20px;
   }
   #encyclopedia .enc-title .pink {
@@ -1291,7 +1287,7 @@
     padding: 6px 16px; border-radius: 50px;
   }
   #encyclopedia .enc-body {
-    font-size: .94rem; color: rgba(255,255,255,.68);
+    font-size: .94rem; color: #424242;
     line-height: 1.78; margin-bottom: 16px;
   }
   #encyclopedia .enc-quote {
@@ -1303,7 +1299,7 @@
   }
   #encyclopedia .enc-quote p {
     font-family: var(--font-head); font-size: .97rem; font-weight: 700;
-    color: #fff; line-height: 1.6; margin: 0;
+    color: #424242; line-height: 1.6; margin: 0;
   }
   #encyclopedia .enc-quote span { color: var(--grad-start); }
   #encyclopedia .enc-right {
@@ -1311,14 +1307,14 @@
   }
   #encyclopedia .enc-cta-heading {
     font-family: var(--font-head); font-size: 1.25rem; font-weight: 800;
-    color: #fff; line-height: 1.4; margin-bottom: 8px;
+    color: #424242; line-height: 1.4; margin-bottom: 8px;
   }
   #encyclopedia .enc-cta-sub {
-    font-size: .88rem; color: rgba(255,255,255,.52);
+    font-size: .88rem; color: #888;
     line-height: 1.6; margin-bottom: 24px;
   }
   #encyclopedia .enc-form-box {
-    background: rgba(255,255,255,0.04);
+    background: #f7f7f7;
     border: 1px solid rgba(253,85,100,0.22);
     border-radius: 16px; padding: 28px 28px 22px;
   }
@@ -1332,7 +1328,7 @@
     accent-color: var(--grad-start); cursor: pointer;
   }
   #encyclopedia .enc-gdpr span {
-    font-size: .76rem; color: rgba(255,255,255,.45); line-height: 1.6;
+    font-size: .76rem; color: #888; line-height: 1.6;
   }
   #encyclopedia .enc-gdpr a { color: var(--grad-start); text-decoration: underline; }
   #encyclopedia .enc-bottom {
@@ -1368,7 +1364,7 @@
         <h2 id="enc-title" class="enc-title">
           RELATIONSHIP VS<br>
           <span class="pink">RELATIONSH!T.</span><br>
-          <span style="font-size:clamp(1rem,1.8vw,1.4rem); font-weight:700; color:rgba(255,255,255,.6); letter-spacing:.04em;">Enciclopedia SELLDUCTION</span>
+          <span style="font-size:clamp(1rem,1.8vw,1.4rem); font-weight:700; color:#888; letter-spacing:.04em;">Enciclopedia SELLDUCTION</span>
         </h2>
         <div class="enc-badges">
           <span class="enc-badge">63 de pagini</span>
