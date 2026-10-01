@@ -910,8 +910,29 @@
       font-size: clamp(1.8rem, 2.8vw, 2.4rem);
       color: #1a1a1a; margin: 12px 0 8px;
     }
-    .testimoniale-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    .testimoniale-grid { display: none; }
+
+    /* ── Carousel ── */
+    .t-carousel { position: relative; overflow: hidden; }
+    .t-track {
+      display: flex; transition: transform .55s cubic-bezier(.4,0,.2,1);
+    }
+    .t-slide {
+      min-width: 50%; padding: 0 16px; box-sizing: border-box;
+    }
+    .t-dots {
+      display: flex; justify-content: center; gap: 8px; margin-top: 36px;
+    }
+    .t-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.25); border: none; cursor: pointer;
+      transition: background .3s, transform .3s;
+    }
+    .t-dot.active {
+      background: var(--grad-start); transform: scale(1.3);
+    }
+    @media(max-width: 768px) {
+      .t-slide { min-width: 100%; padding: 0 8px; }
     }
     .testimonial-card {
       background: #fff;
@@ -1701,176 +1722,174 @@
       <span class="section-label">Recenzii</span>
       <h2 id="testimoniale-title">Ce spun cititorii</h2>
     </div>
-    <div class="testimoniale-grid">
+    <div class="testimoniale-grid" aria-hidden="true"></div>
 
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Am citit-o pe nerăsuflate în două zile. A colorat două după-amiezi plictisitoare de vineri și luni. Directă, la subiect, mi-a plăcut de la început și am admirat curajul autorului de a îmbina experiențele proprii (fie și în glumă) și tehnicile de vânzare. Și da, am realizat că vânzarea este o artă și că, de cele mai multe ori, cheia succesului în vânzări (și chiar în viață) este să nu te lași copleșit de un refuz! Mulțumim, Marius!
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Simona Zvanciuc</strong>
+    <!-- Carousel -->
+    <div class="t-carousel" id="tCarousel" aria-label="Recenzii cititori">
+      <div class="t-track" id="tTrack">
+
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Am citit-o pe nerăsuflate în două zile. A colorat două după-amiezi plictisitoare de vineri și luni. Directă, la subiect, mi-a plăcut de la început și am admirat curajul autorului de a îmbina experiențele proprii (fie și în glumă) și tehnicile de vânzare. Și da, am realizat că vânzarea este o artă și că, de cele mai multe ori, cheia succesului în vânzări (și chiar în viață) este să nu te lași copleșit de un refuz! Mulțumim, Marius!</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Simona Zvanciuc</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Am început să citesc «Sellduction» fără să știu exact la ce să mă aștept și, sincer, m-a surprins plăcut. «Sellduction» mi-a arătat că, dincolo de tehnici de vânzare și negociere, există o lume întreagă de emoții, experiențe și povești care ne influențează felul în care comunicăm și relaționăm. Apreciez curajul de a te destăinui, de a lăsa oamenii să vadă dincolo de ceea ce se vede la prima întâlnire, pentru că, în spatele fiecărei povești, fiecărei alegeri și fiecărei reușite, sunt oameni, întâmplări, lecții și momente care ne-au făcut să devenim cine suntem. Faptul că ai ales să le împărtășești cu noi face ca această carte să fie mult mai mult decât o carte despre vânzare. Este o parte din tine, oferită cu sinceritate. Felicitări, Marius Bogdan Pislariu, pentru această carte! Se simte experiența, pasiunea și munca multă din spatele ei. «Sellduction» mi-a lăsat nu doar idei pe care le pot folosi, ci și câteva întrebări la care merită să mă întorc. Și cred că acesta este unul dintre cele mai frumoase lucruri pe care le poate face o carte.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Costantina Brumă</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Am început să citesc «Sellduction» fără să știu exact la ce să mă aștept și, sincer, m-a surprins plăcut. «Sellduction» mi-a arătat că, dincolo de tehnici de vânzare și negociere, există o lume întreagă de emoții, experiențe și povești care ne influențează felul în care comunicăm și relaționăm. Faptul că ai ales să le împărtășești cu noi face ca această carte să fie mult mai mult decât o carte despre vânzare. Este o parte din tine, oferită cu sinceritate. «Sellduction» mi-a lăsat nu doar idei pe care le pot folosi, ci și câteva întrebări la care merită să mă întorc.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Costantina Brumă</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-3">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Clare și ușor de înțeles. Mi-au fost de mare ajutor. Asemănarea dintre relațiile de iubire și vânzări a făcut ca vânzările să fie mai ușor de înțeles și mai accesibile. Recunosc că nu sunt expertă în acest domeniu, fiind medic. Foarte bună. Memorabilă.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Alina Bobis</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Clare și ușor de înțeles. Mi-au fost de mare ajutor. Asemănarea dintre relațiile de iubire și vânzări a făcut ca vânzările să fie mai ușor de înțeles și mai accesibile. Recunosc că nu sunt expertă în acest domeniu, fiind medic. Foarte bună. Memorabilă.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Alina Bobis</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Foarte interesantă comparația. Îmi închipui actul de vânzare ca un tango în care partenerii respectă ritmul, simțurile și direcția, pentru a realiza un dans armonios. Foarte bună și exemplificatoare.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Hincu Dacia</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Foarte interesantă comparația. Îmi închipui actul de vânzare ca un tango în care partenerii respectă ritmul, simțurile și direcția, pentru a realiza un dans armonios. Foarte bună și exemplificatoare.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Hincu Dacia</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Analogiile pe care le face Marius sunt extrem de valoroase. Extraordinară carte!
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Ana Maria Bazon</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Analogiile pe care le face Marius sunt extrem de valoroase. Extraordinară carte!</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Ana Maria Bazon</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-3">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Mi s-a părut interesantă asocierea dintre procesul de vânzare și ideea de întâlnire. Mi-a confirmat faptul că și vânzarea de servicii trebuie să se petreacă firesc.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Curcean Elena</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Mi s-a părut interesantă asocierea dintre procesul de vânzare și ideea de întâlnire. Mi-a confirmat faptul că și vânzarea de servicii trebuie să se petreacă firesc.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Curcean Elena</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Foarte clare, logice și utile. Cel mai valoros aspect: «prinderea» clienților. Informații foarte utile pe care nu le aplic, dar pe care le pot aplica foarte ușor. Informații pe care crezi că le-ai fi putut implementa și singur, dar efectiv nu te-ai gândit la ele. Nota 10!
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Rosalia Mihaiu</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Foarte clare, logice și utile. Cel mai valoros aspect: «prinderea» clienților. Informații foarte utile pe care nu le aplic, dar pe care le pot aplica foarte ușor. Informații pe care crezi că le-ai fi putut implementa și singur, dar efectiv nu te-ai gândit la ele. Nota 10!</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Rosalia Mihaiu</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Personal, consider că a fost clar și ușor de înțeles. Cel mai valoros: modul în care să relaționez cu clienții. Cursul lui Marius este corect, nu știu dacă sau ce aș schimba la el.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Hiciu Ștefan</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Personal, consider că a fost clar și ușor de înțeles. Cel mai valoros: modul în care să relaționez cu clienții. Cursul lui Marius este corect, nu știu dacă sau ce aș schimba la el.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Hiciu Ștefan</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-3">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Foarte clare și pe înțelesul tuturor. Foarte relevante și direct aplicabile. Cel mai valoros: cât de important este cum ne prezentăm în fața clienților și ce transmitem. Sfaturi vitale pentru afacerile noastre.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Constantin Cotet</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Foarte clare și pe înțelesul tuturor. Foarte relevante și direct aplicabile. Cel mai valoros: cât de important este cum ne prezentăm în fața clienților și ce transmitem. Sfaturi vitale pentru afacerile noastre.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Constantin Cotet</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-1">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Foarte clare și ușor de înțeles. Cel mai valoros: legătura dintre seducție și vânzări.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Măriuța Alexandru</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Foarte clare și ușor de înțeles. Cel mai valoros: legătura dintre seducție și vânzări.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Măriuța Alexandru</strong></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="testimonial-card reveal reveal-delay-2">
-        <div class="star-row" aria-label="5 stele">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <span class="testimonial-quote-mark" aria-hidden="true">"</span>
-        <blockquote>
-          Marius, care are răspunsuri la tot. Cel mai valoros: apropierea de client din altă perspectivă. Extraordinară carte.
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-info">
-            <strong>Corina Listaru</strong>
+        <div class="t-slide">
+          <div class="testimonial-card">
+            <div class="star-row" aria-label="5 stele"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+            <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+            <blockquote>Marius, care are răspunsuri la tot. Cel mai valoros: apropierea de client din altă perspectivă. Extraordinară carte.</blockquote>
+            <div class="testimonial-author"><div class="testimonial-info"><strong>Corina Listaru</strong></div></div>
           </div>
         </div>
-      </div>
 
-    </div>
+      </div><!-- /t-track -->
+    </div><!-- /t-carousel -->
+
+    <div class="t-dots" id="tDots" aria-label="Navigare carousel"></div>
+
   </div>
 </section>
+
+<script>
+(function(){
+  var track   = document.getElementById('tTrack');
+  var dotsEl  = document.getElementById('tDots');
+  if (!track || !dotsEl) return;
+
+  var slides    = track.querySelectorAll('.t-slide');
+  var total     = slides.length;
+  var visible   = window.innerWidth <= 768 ? 1 : 2;
+  var steps     = Math.ceil(total / visible);
+  var current   = 0;
+  var timer;
+
+  /* build dots */
+  for (var i = 0; i < steps; i++) {
+    var d = document.createElement('button');
+    d.className = 't-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.dataset.idx = i;
+    d.addEventListener('click', function(){ goTo(+this.dataset.idx); resetTimer(); });
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(idx) {
+    current = (idx + steps) % steps;
+    var slideWidth = window.innerWidth <= 768 ? 100 : 50;
+    track.style.transform = 'translateX(-' + (current * visible * slideWidth) + '%)';
+    dotsEl.querySelectorAll('.t-dot').forEach(function(d, i){
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function next() { goTo(current + 1); }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(next, 4000);
+  }
+
+  /* pause on hover */
+  var carousel = document.getElementById('tCarousel');
+  carousel.addEventListener('mouseenter', function(){ clearInterval(timer); });
+  carousel.addEventListener('mouseleave', resetTimer);
+
+  /* update on resize */
+  window.addEventListener('resize', function(){
+    visible = window.innerWidth <= 768 ? 1 : 2;
+    steps   = Math.ceil(total / visible);
+    current = 0;
+    goTo(0);
+  });
+
+  resetTimer();
+})();
+</script>
 
 <!-- ═══════════════════════════════════════════
      SECTION 8 , SELLDUCTION TRAINING
